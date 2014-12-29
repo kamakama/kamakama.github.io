@@ -1,27 +1,27 @@
 <!DOCTYPE HTML>
 <html>
-		<head>
-				<title>bpg format</title>
-				<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-				<style type="text/css">
-						.imgcomparison { display: inline; }
-				</style>
-				<script type="text/javascript" src="js/bpgdec.js"></script>
-		</head>
+	<head>
+		<title>bpg format</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<style type="text/css">
+				.imgcomparison { display: inline; }
+			</style>
+			<script type="text/javascript" src="js/bpgdec.js"></script>
+	</head>
 
-		<body>
-				<div class="imgcomparison"><canvas id="bpgcanvas" width="500px" height="500px"></canvas></div>
-				<div class="imgcomparison"><img src="img/ex1.jpg"></div>
-				<script>
-						//convert bpg to png canvas using javascript decoder
-						(function (){
-								var img, canvas, ctx;
-								canvas = document.getElementById("bpgcanvas");
-								ctx = canvas.getContext("2d");
-								img = new BPGDecoder(ctx);
-								img.onload = function() { ctx.putImageData(this.imageData, 0, 0); };
-								img.load("img/ex1.bpg");
-						})();
-				</script>
-		</body>
+	<body>
+		<div class="imgcomparison"><canvas id="bpgcanvas" width="500px" height="500px"></canvas></div>
+		<div class="imgcomparison"><img src="img/ex1.jpg"></div>
+		<script>
+			//convert bpg to png canvas using javascript decoder
+				(function (){
+					var img, canvas, ctx;
+					canvas = document.getElementById("bpgcanvas");
+					ctx = canvas.getContext("2d");
+					img = new BPGDecoder(ctx);
+					img.onload = function() { ctx.putImageData(this.imageData, 0, 0); };
+					img.load("img/ex1.bpg");
+				})();
+		</script>
+	</body>
 </html>
