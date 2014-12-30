@@ -1,17 +1,17 @@
 body {
 	font-family: Verdana, Geneva, sans-serif;
 	background-color: #572561;
-	background-image: url("http://i.imgur.com/MWvR3Li.png");
-	/*background-image: url("chiri.png");*/
+	background-image: url("chiri.png");
 	background-repeat:no-repeat;
 	background-position: center top;
 	background-size: cover;
 }
-#countdowndiv {
+#countdownDiv {
 	color: white;
 	text-align: center;
+	position: fixed;
 	width: 100%;
-	top: 100px;
+	top: 20px;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	font-size: 2.5vw;
 }
