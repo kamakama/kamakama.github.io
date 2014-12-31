@@ -22,9 +22,11 @@ $(document).ready(function() {
 	$("#collapse").click(function() {
 		if (hiddenstate == true) {
 			$("#recs p").css("display", "block");
+			$("#collapse h3").html("Collapse all");
 			hiddenstate=false;
 		} else {
 			$("#recs p").css("display", "none");
+			$("#collapse h3").html("Expand all");
 			hiddenstate=true;
 		}
 	});
