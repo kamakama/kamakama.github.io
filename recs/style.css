@@ -18,6 +18,11 @@
 	float: left;
 }
 
+#recs p {
+	margin-left: 10px;
+	margin-bottom: 50px;
+}
+
 iframe {
 	width: 1040px;
 	height: 520px;
@@ -26,15 +31,10 @@ iframe {
 body { 
 	background-color: #2B2B2B;
 	background-attachment: fixed, fixed;
-	background-image: url('img/asuka.png');
-	background-position: 95% 100%, left top;
+	background-image: url('img/mascot/ryuuko.png');
+	background-position: 98% 100%, left top;
 	background-repeat: no-repeat, repeat;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 15px;
 	color: white;
-}
-
-p {
-	margin-left: 10px;
-	margin-bottom: 50px;
 }
