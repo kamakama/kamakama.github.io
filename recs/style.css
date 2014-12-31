@@ -16,25 +16,48 @@
 	width: 70%;
 	margin-left: 3%;
 	float: left;
+	padding-top: 10px;
 }
 
 #recs p {
+	padding-top: 0px;
 	margin-left: 10px;
-	margin-bottom: 50px;
+	padding-bottom: 10px;
+	display: none;
 }
 
-iframe {
-	width: 1040px;
-	height: 520px;
+.rec {
+	background-color: #3f3e3e;
+	border-radius: 10px;
+}
+
+.rec h3 {
+	background-color: #4b4a4a;
+	border-radius: 10px;
+	border-color: #6495ED;
+	border-width: 2px;
+    border-style: solid;
+	padding: 5px 10px 5px 10px;
+}
+
+.rec.old h3 {
+	border-color: #414141;
+}
+
+#collapse.rec h3  {
+	border-color: #171717;
 }
 
 body { 
 	background-color: #2B2B2B;
 	background-attachment: fixed, fixed;
 	background-image: url('img/mascot/ryuuko.png');
-	background-position: 98% 100%, left top;
+	background-position: 95% 100%, left top;
 	background-repeat: no-repeat, repeat;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 15px;
 	color: white;
 }
+
+a  {	color: #6997c6; }
+a:visited  { color: #7e678c; }
