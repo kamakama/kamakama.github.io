@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+	//initialize sound
+	$.ionSound({
+		sounds: [{name: "nyanpass"}],
+		volume: 0.2,
+		path: "sounds/",
+		preload: true
+	});
+	$(".rec").click(function() { $.ionSound.play("nyanpass"); });
+	
 	//hover effects
 	$(".rec h3").hover(function() {
 		$(this).css("background-color", "#646972");
@@ -14,18 +23,18 @@ $(document).ready(function() {
 	});
 	
 	//collapse or expand recs
-	$(".rec h3").click(function() {
+	$(".rec.fickdich h3").click(function() {
 		$("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
 	});
 	
 	var hiddenstate = true;
 	$("#collapse").click(function() {
 		if (hiddenstate == true) {
-			$("#recs p").css("display", "block");
+			$(".fickdich p").css("display", "block");
 			$("#collapse h3").html("Collapse all");
 			hiddenstate=false;
 		} else {
-			$("#recs p").css("display", "none");
+			$(".fickdich p").css("display", "none");
 			$("#collapse h3").html("Expand all");
 			hiddenstate=true;
 		}
