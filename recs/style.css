@@ -20,7 +20,14 @@
 
 .rec.old h3 { border-color: #414141; }
 .rec.fickdich h3 { border-color: #ae0428; }
-.rec.fickdich p { display: block; }
+.rec.fickdich p {
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	color: yellow;
+}
+.rec.fickdich {
+	background-image: url('img/araragi.jpg');
+    background-position: 0%  10%, left top;
+}
 #collapse.rec h3  { border-color: #171717; }
 
 #imgselect img {
