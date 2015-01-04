@@ -10,41 +10,35 @@
     text-align: center;
 }
 
-.menu-item {
-    width: 120px;
-    height: 100%;
-    bottom: 50px;
-    float: left;
-    border-left-color: #353434;
-    border-left-width: 2px;
-    border-left-style: solid;
-}
-
-#collapse {
-    border-left-width: 0px;
-}
-
-#menu-select {
-    float: right;
-    width: 307px;
-}
-
+    .menu-item {
+        width: 120px;
+        height: 100%;
+        bottom: 50px;
+        float: left;
+        border-left-color: #353434;
+        border-left-width: 2px;
+        border-left-style: solid;
+    }
+        #menu-collapse { 
+            border-left-width: 0px; 
+        }
+        #menu-select { 
+            float: right; 
+            width: 307px;
+        }
+        
 #imgselect {
-	right: 0;
-	top: 50px;
-	position: absolute;
-	display: none;
+    right: 0;
+    top: 50px;
+    position: absolute;
+    display: none;
     border-collapse: collapse;
 }
-
-#imgselect td {
-    border: 2px solid #1b1b1b;
-	border-color: #171717;
-}
-
-#imgselect img {
-    display: block;
-}
+    #imgselect td {
+        border: 2px solid #1b1b1b;
+	    border-color: #171717;
+    }
+    #imgselect img { display: block; }
 
 /* MAIN REC DIV */
 #recs {
@@ -58,30 +52,28 @@
 	background-color: #3f3e3e;
 	border-radius: 10px;
 }
-
-.rec h3 {
-	background-color: #4b4a4a;
-	border-radius: 10px;
-	border-color: #6495ED;
-	border-width: 2px;
-    border-style: solid;
-	padding: 5px 10px 5px 10px;
-}
-
-.rec p {
-	margin-left: 10px;
-	padding-bottom: 10px;
-	display: none;
-}
-
-.rec.oldrec h3 { border-color: #414141; }
-.rec.moerec h3 { border-color: #ae0428; }
+    .rec h3 {
+	    background-color: #4b4a4a;
+	    border-radius: 10px;
+	    border-color: #6495ED;
+	    border-width: 2px;
+        border-style: solid;
+	    padding: 5px 10px 5px 10px;
+    }
+    .rec p {
+	    margin-left: 10px;
+        margin-right: 10px;
+	    padding-bottom: 10px;
+	    display: none;
+    }
+    .rec.oldrec h3 { border-color: #414141; }
+    .rec.moerec h3 { border-color: #ae0428; }
+    #vocaroo-nils img { vertical-align: middle; }
 
 /* GENERAL */
 body { 
 	background-color: #2B2B2B;
 	background-attachment: fixed, fixed;
-	background-image: url('img/mascot/ryuuko.png');
 	background-position: 95% 100%, left top;
 	background-repeat: no-repeat, repeat;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -89,6 +81,6 @@ body {
 	color: white;
 }
 
-td, tr, img  { padding: 0px; margin: 0px; }
-a  {	color: #6997c6; }
-a:visited  { color: #7e678c; }
+td, tr, img { padding: 0px; margin: 0px; }
+a { color: #6997c6; }
+a:visited { color: #7e678c; }

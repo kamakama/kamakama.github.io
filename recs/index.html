@@ -5,17 +5,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="icon" type="image/png" href="img/kamakama.ico">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.ion.sound.min.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" defer></script>
+		<script type="text/javascript" src="js/jquery.ion.sound.min.js" defer></script>
+		<script type="text/javascript" src="js/script.js" defer></script>
 	</head>
 
 	<body>
 		<div id="menubar">
-            <div class="menu-item" id="collapse"><p>Expand all</p></div>
-            <div class="menu-item" id="toggleMoe"><p>Hide moe recs</p></div>
-            <div class="menu-item" id="toggleOld"><p>Hide old recs</p></div>
-            <div class="menu-item" id="nyanpasu"><p>Nyanpasu!</p></div>
+            <div class="menu-item" id="menu-collapse"><p>Expand all</p></div>
+            <div class="menu-item" id="menu-toggleMoe"><p>Hide moe recs</p></div>
+            <div class="menu-item" id="menu-toggleOld"><p>Hide old recs</p></div>
+            <div class="menu-item" id="menu-nyanpasu"><p>Nyanpasu!</p></div>
 			<div class="menu-item" id="menu-select">
                 <p>Choose mascot</p>
 			    <table id="imgselect">
@@ -41,6 +41,7 @@
 						<td><img class="mascot" alt="asuka" src="img/thumb/selection_asuka.jpg"></td>
 						<td><img class="mascot" alt="tsurugi" src="img/thumb/selection_tsurugi.jpg"></td>
 						<td><img class="mascot" alt="akari" src="img/thumb/selection_akari.jpg"></td>
+                        <td><img class="mascot" alt="random" src="img/thumb/selection_random.jpg"></td>
 					</tr>
 				</table>
 			</div>
@@ -214,14 +215,7 @@
 			</div>
 
 			<div class="rec oldrec">
-				<h3>gruß vom gog</h3>
-				<p>
-					<object width="148" height="44">
-						<param name="movie" value="http://vocaroo.com/player.swf?playMediaID=s0wSeD9kqTkZ&autoplay=0">
-						<param name="wmode" value="transparent">
-						<embed src="http://vocaroo.com/player.swf?playMediaID=s0wSeD9kqTkZ&autoplay=0" width="148" height="44" wmode="transparent" type="application/x-shockwave-flash">
-					</object>
-				</p>
+				<h3 id="vocaroo-nils"><img src="img/play.png" alt="vocaroo-nils"> gruß vom gog</h3>
 			</div>
 
 			<div class="rec oldrec">
@@ -248,7 +242,6 @@
 				<h3>Kara no Kyoukai</h3>
 				<p>von den fate spastis. im selben universum wie fate. auch so urban fantasy. ist ne pretty lange reihe von filmen. cool und dark wie meine soul. find ich eigentlich cooler wie fate aber muss mir die filme mal wieder ansehn ey hab nichts mehr davon im kobb</p>
 			</div>
-		</div>
-				
+		</div>			
 	</body>
 </html>
