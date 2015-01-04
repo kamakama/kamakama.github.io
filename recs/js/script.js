@@ -7,7 +7,7 @@ $(document).ready(function() {
 		path: "sounds/",
 		preload: true
 	});
-	$(".rec").click(function() { $.ionSound.play("nyanpass"); });
+	$("#nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
 	
 	//hover effects
 	$(".rec h3").hover(function() {
@@ -15,30 +15,73 @@ $(document).ready(function() {
 	},function() {
 		$(this).css("background-color", "#4b4a4a");
 	});
-	
-	$("#imgselect img").hover(function() {
-		$(this).css("opacity", "0.7");
+
+	$(".menu-item").hover(function() {
+		$(this).css("background-color", "#353434");
+	},function() {
+		$(this).css("background-color", "#191818");
+	});
+
+    $("#menu-select").hover(function() {
+		$("#imgselect").slideDown( 200, "linear" );
+	}, function() {
+        $("#imgselect").slideUp( 200, "linear" );
+    });	
+
+	$("#imgselect td").hover(function() {
+		$(this).css("opacity", "0.8");
 	},function() {
 		$(this).css("opacity", "1");
 	});
+
+    //set menu-select width
+	var selectWidth = $("#imgselect").width();
+	$("#menu-select").width(selectWidth);
 	
 	//collapse or expand recs
-	$(".rec.fickdich h3").click(function() {
+	$(".rec h3").click(function() {
 		$("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
 	});
 	
 	var hiddenstate = true;
 	$("#collapse").click(function() {
 		if (hiddenstate == true) {
-			$(".fickdich p").css("display", "block");
-			$("#collapse h3").html("Collapse all");
+			$(".rec p").css("display", "block");
+			$("#collapse p").html("Collapse all");
 			hiddenstate=false;
 		} else {
-			$(".fickdich p").css("display", "none");
-			$("#collapse h3").html("Expand all");
+			$(".rec p").css("display", "none");
+			$("#collapse p").html("Expand all");
 			hiddenstate=true;
 		}
 	});
+
+    // show/hide rec categories
+    var moeState = true;
+    $("#toggleMoe").click(function() {
+        if (moeState == true) {
+            $(".moerec").toggle();
+            $("#toggleMoe p").text("Show moe recs");
+            moeState=false;
+        } else {
+            $(".moerec").toggle();
+            $("#toggleMoe p").html("Hide moe recs");
+            moeState=true;
+        }
+    });
+    
+    var oldState = true;
+    $("#toggleOld").click(function() {
+        if (oldState == true) {
+            $(".oldrec").toggle();
+            $("#toggleOld p").text("Show old recs");
+            oldState=false;
+        } else {
+            $(".oldrec").toggle();
+            $("#toggleOld p").html("Hide old recs");
+            oldState=true;
+        }
+    });
 	
 	// change displayed mascot on click
 	$(".mascot").click(function(){
