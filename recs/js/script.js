@@ -2,12 +2,28 @@ $(document).ready(function() {
 
 	//initialize sound
 	$.ionSound({
-		sounds: [{name: "nyanpass"}],
+		sounds: [
+            {name: "nyanpass"}, 
+            {name: "nils", volume: 1}], //http://vocaroo.com/i/s0wSeD9kqTkZ
 		volume: 0.2,
 		path: "sounds/",
 		preload: true
 	});
-	$("#nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
+
+	$("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
+    $("#vocaroo-nils").click(function() { 
+        if ($("#vocaroo-nils img").attr("src")=="img/play.png") {
+            $.ionSound.play("nils", {
+                onEnded: function() {
+                    $("#vocaroo-nils img").attr("src", "img/play.png");
+                }
+            });
+            $("#vocaroo-nils img").attr("src", "img/stop.png");
+        } else {
+            $.ionSound.stop("nils");
+            $("#vocaroo-nils img").attr("src", "img/play.png");
+        }
+    });
 	
 	//hover effects
 	$(".rec h3").hover(function() {
@@ -40,55 +56,87 @@ $(document).ready(function() {
 	});
 	
 	var hiddenstate = true;
-	$("#collapse").click(function() {
+	$("#menu-collapse").click(function() {
 		if (hiddenstate == true) {
 			$(".rec p").css("display", "block");
-			$("#collapse p").html("Collapse all");
+			$("#menu-collapse p").html("Collapse all");
 			hiddenstate=false;
 		} else {
 			$(".rec p").css("display", "none");
-			$("#collapse p").html("Expand all");
+			$("#menu-collapse p").html("Expand all");
 			hiddenstate=true;
 		}
 	});
 
     // show/hide rec categories
     var moeState = true;
-    $("#toggleMoe").click(function() {
+    $("#menu-toggleMoe").click(function() {
         if (moeState == true) {
             $(".moerec").toggle();
-            $("#toggleMoe p").text("Show moe recs");
+            $("#menu-toggleMoe p").text("Show moe recs");
             moeState=false;
         } else {
             $(".moerec").toggle();
-            $("#toggleMoe p").html("Hide moe recs");
+            $("#menu-toggleMoe p").html("Hide moe recs");
             moeState=true;
         }
     });
     
     var oldState = true;
-    $("#toggleOld").click(function() {
+    $("#menu-toggleOld").click(function() {
         if (oldState == true) {
             $(".oldrec").toggle();
-            $("#toggleOld p").text("Show old recs");
+            $("#menu-toggleOld p").text("Show old recs");
             oldState=false;
         } else {
             $(".oldrec").toggle();
-            $("#toggleOld p").html("Hide old recs");
+            $("#menu-toggleOld p").html("Hide old recs");
             oldState=true;
         }
     });
 	
 	// change displayed mascot on click
-	$(".mascot").click(function(){
-		$("body").css("background-image", "url('img/mascot/"+$(this).attr("alt")+".png')");
+    var mascots = [
+        "akari",
+        "arisu",
+        "asuka",
+        "ayase",
+        "cosplay",
+        "kirino",
+        "korbo",
+        "maki",
+        "mayaka",
+        "miuna",
+        "popura",
+        "ryuuko",
+        "shinobu",
+        "tsurugi"
+    ];
+
+    function randomMascot() {
+        return mascots[Math.floor(Math.random() * mascots.length)];
+    }
+
+    var mascot=randomMascot();
+    $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
+
+	$(".mascot").click(function() {
+        if ($(this).attr("alt")=="random") {
+            do {
+                var oldMascot = mascot;
+                mascot=randomMascot();
+            } while (mascot==oldMascot);
+        } else {
+            mascot=$(this).attr("alt");
+        }
+		$("body").css("background-image", "url('img/mascot/"+mascot+".png')");
 	});
 	
-	$("#kirinolink").click(function(){
+	$("#kirinolink").click(function() {
 		$("body").css("background-image", "url('img/mascot/kirino.png')");
 	});
 	
-	$("#ayaselink").click(function(){
+	$("#ayaselink").click(function() {
 		$("body").css("background-image", "url('img/mascot/ayase.png')");
 	});
 	
