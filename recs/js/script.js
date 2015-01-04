@@ -33,10 +33,6 @@ $(document).ready(function() {
 	},function() {
 		$(this).css("opacity", "1");
 	});
-
-    //set menu-select width
-	var selectWidth = $("#imgselect").width();
-	$("#menu-select").width(selectWidth);
 	
 	//collapse or expand recs
 	$(".rec h3").click(function() {
