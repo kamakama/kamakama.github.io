@@ -5,14 +5,13 @@ $(document).ready(function() {
 		sounds: [
             {name: "nyanpass"}, 
             {name: "nils", volume: 1}, //http://vocaroo.com/i/s0wSeD9kqTkZ
-			{name: "fds"}],
+			],
 		volume: 0.2,
 		path: "sounds/",
 		preload: true
 	});
 
 	$("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
-	$("#menu-fds").click(function() { $.ionSound.play("fds"); });
     $("#vocaroo-nils").click(function() { 
         if ($("#vocaroo-nils img").attr("src")=="img/play.png") {
             $.ionSound.play("nils", {
