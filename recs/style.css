@@ -68,6 +68,7 @@
     }
     .rec.oldrec h3 { border-color: #414141; }
     .rec.moerec h3 { border-color: #ae0428; }
+	.rec.airrec h3 { border-color: #0f4ec3; }
     #vocaroo-nils img { vertical-align: middle; }
 
 /* GENERAL */
