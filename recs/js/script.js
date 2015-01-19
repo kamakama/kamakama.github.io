@@ -96,6 +96,19 @@ $(document).ready(function() {
         }
     });
 	
+	var airingState = true;
+    $("#menu-toggleAiring").click(function() {
+        if (airingState == true) {
+            $(".airrec").toggle();
+            $("#menu-toggleAiring p").text("Show airing recs");
+            airingState=false;
+        } else {
+            $(".airrec").toggle();
+            $("#menu-toggleAiring p").html("Hide airing recs");
+            airingState=true;
+        }
+    });
+	
 	// change displayed mascot on click
     var mascots = [
         "akari",
