@@ -61,23 +61,23 @@ $(document).ready(function() {
 		$("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
 	});
 	
-	var hiddenstate = true;
+	var hiddenState = true;
 	$("#menu-collapse").click(function() {
-		if (hiddenstate == true) {
+		if (hiddenState) {
 			$(".rec p").css("display", "block");
 			$("#menu-collapse p").html("Collapse all");
-			hiddenstate=false;
+			hiddenState=false;
 		} else {
 			$(".rec p").css("display", "none");
 			$("#menu-collapse p").html("Expand all");
-			hiddenstate=true;
+			hiddenState=true;
 		}
 	});
 
     // show/hide rec categories
     var moeState = true;
     $("#menu-toggleMoe").click(function() {
-        if (moeState == true) {
+        if (moeState) {
             $(".moerec").toggle();
             $("#menu-toggleMoe p").text("Show moe recs");
             moeState=false;
@@ -90,7 +90,7 @@ $(document).ready(function() {
     
     var oldState = true;
     $("#menu-toggleOld").click(function() {
-        if (oldState == true) {
+        if (oldState) {
             $(".oldrec").toggle();
             $("#menu-toggleOld p").text("Show old recs");
             oldState=false;
@@ -103,7 +103,7 @@ $(document).ready(function() {
 	
 	var airingState = true;
     $("#menu-toggleAiring").click(function() {
-        if (airingState == true) {
+        if (airingState) {
             $(".airrec").toggle();
             $("#menu-toggleAiring p").text("Show airing recs");
             airingState=false;
