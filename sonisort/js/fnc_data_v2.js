@@ -32,7 +32,7 @@ var ary_TitleData = [
    "NHK ni Youkoso!",
    "Tatami Galaxy",
    "Samurai Champloo",
-   "Random fickshit whatever bitch nenn mir halt keine serien"
+   "Random fickshit"
 ];
 
 // * キャラクター情報（編集可能。最後の行に”,”を付けないようにしてください）
