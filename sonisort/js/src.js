@@ -6,7 +6,7 @@ $(document).ready(function() {
 		$(this).css("background-color", "#191818");
 	});
 	
-	$("tbody td").hover(function() {
+	$("#fldLeft, #fldMiddleT, #fldRight, #fldMiddleB").hover(function() {
 		$(this).css("background-color", "#353434");
 	}, function() {
 		$(this).css("background-color", "#2B2B2B");
