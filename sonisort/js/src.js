@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	$("#menu-restart, #btn-rawtext").hover(function() {
+	$("#menu-restart, #menu-recs, #btn-rawtext").hover(function() {
 		$(this).css("background-color", "#353434");
 	},function() {
 		$(this).css("background-color", "#191818");
@@ -14,6 +14,10 @@ $(document).ready(function() {
 	
 	$("#menu-restart").click(function() {
 		location.reload();
+	});
+	
+	$("#menu-recs").click(function() {
+		location.href='../recs/index.html';
 	});
 	
 });
