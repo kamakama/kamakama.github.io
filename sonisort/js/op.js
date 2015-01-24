@@ -3,7 +3,7 @@
       with (oWindow.document) {
             write("<html>");
             write("<head>");
-            write("<title>Tohosort: Raw Text Results<\/title>");
+            write("<title>Sonisort: Raw Text Results<\/title>");
 			write("<style>");
 			write("body { background-color: #2B2B2B; color: #ffffff; font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif; font-size: 15px; }");
 			write("<\/style>");

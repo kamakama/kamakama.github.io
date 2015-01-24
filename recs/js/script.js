@@ -120,7 +120,7 @@ $(document).ready(function() {
         "arisu",
         "asuka",
         "ayase",
-        "cosplay",
+        "choi",
         "kirino",
         "korbo",
         "maki",
