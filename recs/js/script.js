@@ -1,17 +1,17 @@
 $(document).ready(function() {
 
-	//initialize sound
-	$.ionSound({
-		sounds: [
+    //initialize sound
+    $.ionSound({
+        sounds: [
             {name: "nyanpass"}, 
             {name: "nils", volume: 1}, //http://vocaroo.com/i/s0wSeD9kqTkZ
-			],
-		volume: 0.2,
-		path: "sounds/",
-		preload: true
-	});
+            ],
+        volume: 0.2,
+        path: "sounds/",
+        preload: true
+    });
 
-	$("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
+    $("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
     $("#vocaroo-nils").click(function() { 
         if ($("#vocaroo-nils img").attr("src")=="img/play.png") {
             $.ionSound.play("nils", {
@@ -25,49 +25,49 @@ $(document).ready(function() {
             $("#vocaroo-nils img").attr("src", "img/play.png");
         }
     });
-	
-	//hover effects
-	$(".rec h3").hover(function() {
-		$(this).css("background-color", "#646972");
-	},function() {
-		$(this).css("background-color", "#4b4a4a");
-	});
+    
+    //hover effects
+    $(".rec h3").hover(function() {
+        $(this).css("background-color", "#646972");
+    },function() {
+        $(this).css("background-color", "#4b4a4a");
+    });
 
-	$(".menu-item").hover(function() {
-		$(this).css("background-color", "#353434");
-	},function() {
-		$(this).css("background-color", "#191818");
-	});
+    $(".menu-item").hover(function() {
+        $(this).css("background-color", "#353434");
+    },function() {
+        $(this).css("background-color", "#191818");
+    });
 
     $("#menu-select").hover(function() {
-		$("#imgselect").slideDown( 200, "linear" );
-	}, function() {
+        $("#imgselect").slideDown( 200, "linear" );
+    }, function() {
         $("#imgselect").slideUp( 200, "linear" );
-    });	
+    }); 
 
-	$("#imgselect td").hover(function() {
-		$(this).css("opacity", "0.8");
-	},function() {
-		$(this).css("opacity", "1");
-	});
+    $("#imgselect td").hover(function() {
+        $(this).css("opacity", "0.8");
+    },function() {
+        $(this).css("opacity", "1");
+    });
 
-	//collapse or expand recs
-	$(".rec h3").click(function() {
-		$("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
-	});
-	
-	var hiddenState = true;
-	$("#menu-collapse").click(function() {
-		if (hiddenState) {
-			$(".rec p").css("display", "block");
-			$("#menu-collapse p").html("Collapse all");
-			hiddenState=false;
-		} else {
-			$(".rec p").css("display", "none");
-			$("#menu-collapse p").html("Expand all");
-			hiddenState=true;
-		}
-	});
+    //collapse or expand recs
+    $(".rec h3").click(function() {
+        $("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
+    });
+    
+    var hiddenState = true;
+    $("#menu-collapse").click(function() {
+        if (hiddenState) {
+            $(".rec p").css("display", "block");
+            $("#menu-collapse p").html("Collapse all");
+            hiddenState=false;
+        } else {
+            $(".rec p").css("display", "none");
+            $("#menu-collapse p").html("Expand all");
+            hiddenState=true;
+        }
+    });
 
     // show/hide rec categories
     var moeState = true;
@@ -95,8 +95,8 @@ $(document).ready(function() {
             oldState=true;
         }
     });
-	
-	var airingState = true;
+    
+    var airingState = true;
     $("#menu-toggleAiring").click(function() {
         if (airingState) {
             $(".airrec").toggle();
@@ -108,8 +108,8 @@ $(document).ready(function() {
             airingState=true;
         }
     });
-	
-	// change displayed mascot on click
+    
+    // change displayed mascot on click
     var mascots = [
         "akari",
         "arisu",
@@ -134,7 +134,7 @@ $(document).ready(function() {
     var mascot=randomMascot();
     $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
 
-	$(".mascot").click(function() {
+    $(".mascot").click(function() {
         if ($(this).attr("alt")=="random") {
             do {
                 var oldMascot = mascot;
@@ -143,15 +143,15 @@ $(document).ready(function() {
         } else {
             mascot=$(this).attr("alt");
         }
-		$("body").css("background-image", "url('img/mascot/"+mascot+".png')");
-	});
-	
-	$("#kirinolink").click(function() {
-		$("body").css("background-image", "url('img/mascot/kirino.png')");
-	});
-	
-	$("#ayaselink").click(function() {
-		$("body").css("background-image", "url('img/mascot/ayase.png')");
-	});
-	
+        $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
+    });
+    
+    $("#kirinolink").click(function() {
+        $("body").css("background-image", "url('img/mascot/kirino.png')");
+    });
+    
+    $("#ayaselink").click(function() {
+        $("body").css("background-image", "url('img/mascot/ayase.png')");
+    });
+    
 });
