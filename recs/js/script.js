@@ -50,12 +50,7 @@ $(document).ready(function() {
 	},function() {
 		$(this).css("opacity", "1");
 	});
-	
-	//goto sonisort
-	$("#menu-sonisort").click(function() {
-		location.href='../sonisort/index.html';
-	});
-	
+
 	//collapse or expand recs
 	$(".rec h3").click(function() {
 		$("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
