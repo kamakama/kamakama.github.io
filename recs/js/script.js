@@ -1,15 +1,48 @@
 $(document).ready(function() {
 
     //build site
-    alert("test1");
-    $.getJSON('data.json', function(data) {
-        var output="";
-        alert("test");
-        for (var i in data.recs.moerec) {
-            output += "<div class=\rec moerec\"><h3>" + data.recs.moerec[i].title + "</h3><p>" + data.recs.moerec[i].description + "</p></div>";
-        }
-        alert(output);
-        $("#recs").html = output;
+    $.getJSON( "data.json", function(data) {
+        var items=[];
+        $.each( data.recs, function ( recclass, recobj ) {
+            $.each( recobj , function( i, value ) {
+                if (value["description"] == "gogaudio") {
+                    items.push( "<div class='rec " + recclass + "'><h3 id='vocaroo-nils'>" + value["title"] + "</h3></div>");
+                } else {
+                    items.push( "<div class='rec " + recclass + "'><h3>" + value["title"] + "</h3><p>" + value["description"] + "</p></div>");
+                }
+            });
+        });
+        $("#recs").append(items);
+        
+        //apply effects to rec elements        
+        $(".rec h3").hover(function() {
+            $(this).css("background-color", "#646972");
+        },function() {
+            $(this).css("background-color", "#4b4a4a");
+        });
+        
+        $(".rec h3").click(function() {
+            $("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
+        });
+        
+        $("#vocaroo-nils").click(function() { 
+            if ($("#vocaroo-nils img").attr("src")=="img/play.png") {
+                $.ionSound.play("nils", {
+                    onEnded: function() {
+                        $("#vocaroo-nils img").attr("src", "img/play.png");
+                    }
+                });
+                $("#vocaroo-nils img").attr("src", "img/stop.png");
+            } else {
+                $.ionSound.stop("nils");
+                $("#vocaroo-nils img").attr("src", "img/play.png");
+            }
+        });
+
+        $("#kirino, #ayase").click(function() {
+            $("body").css("background-image", "url('img/mascot/" + $(this).attr("id") + ".png')");
+        });
+
     });
 
     //initialize sound
@@ -22,29 +55,10 @@ $(document).ready(function() {
         path: "sounds/",
         preload: true
     });
-
     $("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
-    $("#vocaroo-nils").click(function() { 
-        if ($("#vocaroo-nils img").attr("src")=="img/play.png") {
-            $.ionSound.play("nils", {
-                onEnded: function() {
-                    $("#vocaroo-nils img").attr("src", "img/play.png");
-                }
-            });
-            $("#vocaroo-nils img").attr("src", "img/stop.png");
-        } else {
-            $.ionSound.stop("nils");
-            $("#vocaroo-nils img").attr("src", "img/play.png");
-        }
-    });
+    
     
     //hover effects
-    $(".rec h3").hover(function() {
-        $(this).css("background-color", "#646972");
-    },function() {
-        $(this).css("background-color", "#4b4a4a");
-    });
-
     $(".menu-item").hover(function() {
         $(this).css("background-color", "#353434");
     },function() {
@@ -63,34 +77,30 @@ $(document).ready(function() {
         $(this).css("opacity", "1");
     });
 
-    //collapse or expand recs
-    $(".rec h3").click(function() {
-        $("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
-    });
-    
+    //collapse or expand recs 
     var hiddenState = true;
     $("#menu-collapse").click(function() {
         if (hiddenState) {
             $(".rec p").css("display", "block");
-            $("#menu-collapse p").html("Collapse all");
+            $("#menu-collapse").html("Collapse all");
             hiddenState=false;
         } else {
             $(".rec p").css("display", "none");
-            $("#menu-collapse p").html("Expand all");
+            $("#menu-collapse").html("Expand all");
             hiddenState=true;
         }
     });
 
-    // show/hide rec categories
+    //show/hide rec categories
     var moeState = true;
     $("#menu-toggleMoe").click(function() {
         if (moeState) {
             $(".moerec").toggle();
-            $("#menu-toggleMoe p").text("Show moe recs");
+            $("#menu-toggleMoe").text("Show moe recs");
             moeState=false;
         } else {
             $(".moerec").toggle();
-            $("#menu-toggleMoe p").html("Hide moe recs");
+            $("#menu-toggleMoe").html("Hide moe recs");
             moeState=true;
         }
     });
@@ -99,11 +109,11 @@ $(document).ready(function() {
     $("#menu-toggleOld").click(function() {
         if (oldState) {
             $(".oldrec").toggle();
-            $("#menu-toggleOld p").text("Show old recs");
+            $("#menu-toggleOld").text("Show old recs");
             oldState=false;
         } else {
             $(".oldrec").toggle();
-            $("#menu-toggleOld p").html("Hide old recs");
+            $("#menu-toggleOld").html("Hide old recs");
             oldState=true;
         }
     });
@@ -112,16 +122,16 @@ $(document).ready(function() {
     $("#menu-toggleAiring").click(function() {
         if (airingState) {
             $(".airrec").toggle();
-            $("#menu-toggleAiring p").text("Show airing recs");
+            $("#menu-toggleAiring").text("Show airing recs");
             airingState=false;
         } else {
             $(".airrec").toggle();
-            $("#menu-toggleAiring p").html("Hide airing recs");
+            $("#menu-toggleAiring").html("Hide airing recs");
             airingState=true;
         }
     });
     
-    // change displayed mascot on click
+    //change displayed mascot on click
     var mascots = [
         "akari",
         "arisu",
@@ -156,14 +166,6 @@ $(document).ready(function() {
             mascot=$(this).attr("alt");
         }
         $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
-    });
-    
-    $("#kirinolink").click(function() {
-        $("body").css("background-image", "url('img/mascot/kirino.png')");
-    });
-    
-    $("#ayaselink").click(function() {
-        $("body").css("background-image", "url('img/mascot/ayase.png')");
     });
     
 });
