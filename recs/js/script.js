@@ -1,5 +1,17 @@
 $(document).ready(function() {
 
+    //build site
+    alert("test1");
+    $.getJSON('data.json', function(data) {
+        var output="";
+        alert("test");
+        for (var i in data.recs.moerec) {
+            output += "<div class=\rec moerec\"><h3>" + data.recs.moerec[i].title + "</h3><p>" + data.recs.moerec[i].description + "</p></div>";
+        }
+        alert(output);
+        $("#recs").html = output;
+    });
+
     //initialize sound
     $.ionSound({
         sounds: [
