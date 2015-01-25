@@ -33,6 +33,9 @@ $(document).ready(function() {
             });
         });
         $("#recs").append(itemsRecs);
+        
+        //import video.js
+        $("head").append("<script type='text/javascript' src='http://vjs.zencdn.net/4.11/video.js'></script>");
 
         //change displayed mascot on click
         $(".mascot").click(function() {
