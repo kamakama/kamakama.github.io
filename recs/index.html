@@ -4,9 +4,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>★recs★</title>
         <link rel="icon" type="image/png" href="img/kamakama.ico">
+        <link href="http://vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" defer></script>
         <script type="text/javascript" src="js/jquery.ion.sound.min.js" defer></script>
+        <script type="text/javascript" src="http://vjs.zencdn.net/4.11/video.js" defer></script>
         <script type="text/javascript" src="js/script.js" defer></script>
     </head>
 
@@ -20,7 +22,18 @@
             <div class="menu-item" id="menu-sonisort"><a href="../sonisort/index.html">Sonisort</a></div>
             <div class="menu-item" id="menu-7years"><a href="../7years/index.html">7 years</a></div>
             <div class="menu-item" id="menu-select">Choose mascot<table id="imgselect"></table></div>
+            
         </div>
-        <div id="recs"></div>
+        <div id="recs">
+            <div class="rec">
+                <h3>Neko neko neko</h3>
+                <p>
+                    <video id='nekovid' class='video-js vjs-default-skin vjs-big-play-centered' controls loop preload='auto' width='780' height='439' data-setup='{ "children": { "controlBar": { "children": { "muteToggle": false, "volumeControl" : false } } } }'>
+                        <source src='http://a.pomf.se/pihxlq.webm' type='video/webm'>
+                        To view this video please enable JavaScript, and consider upgrading to a web browser that <a href='http://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+                    </video>
+                </p>
+            </div>
+        </div>
     </body>
 </html>
