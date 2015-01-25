@@ -2,17 +2,57 @@ $(document).ready(function() {
 
     //build site
     $.getJSON( "data.json", function(data) {
-        var items=[];
+    
+        //builds mascots
+        var mascots = data.mascots;
+        var itemsMascots=[];
+        var checkNewTR = 4;
+        $.each( mascots, function( index, value ) {
+            if (checkNewTR % 4 == 0) { itemsMascots.push("<tr>"); }
+            itemsMascots.push("<td><img class='mascot' alt='"+ value + "' src='img/thumb/selection_" + value + ".jpg'></td>");
+            if (checkNewTR % 4 == 0) { itemsMascots.push("</tr>"); }
+            checkNewTR++;       
+        });
+        $("#imgselect").append(itemsMascots);
+        
+        function randomMascot() {
+            return mascots[Math.floor(Math.random() * mascots.length)];
+        }
+        var mascot=randomMascot();
+        $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
+    
+        //build recs
+        var itemsRecs=[];
         $.each( data.recs, function ( recclass, recobj ) {
             $.each( recobj , function( i, value ) {
                 if (value["description"] == "gogaudio") {
-                    items.push( "<div class='rec " + recclass + "'><h3 id='vocaroo-nils'>" + value["title"] + "</h3></div>");
+                    itemsRecs.push( "<div class='rec " + recclass + "'><h3 id='vocaroo-nils'>" + value["title"] + "</h3></div>");
                 } else {
-                    items.push( "<div class='rec " + recclass + "'><h3>" + value["title"] + "</h3><p>" + value["description"] + "</p></div>");
+                    itemsRecs.push( "<div class='rec " + recclass + "'><h3>" + value["title"] + "</h3><p>" + value["description"] + "</p></div>");
                 }
             });
         });
-        $("#recs").append(items);
+        $("#recs").append(itemsRecs);
+
+        //change displayed mascot on click
+        $(".mascot").click(function() {
+            if ($(this).attr("alt")=="random") {
+                do {
+                    var oldMascot = mascot;
+                    mascot=randomMascot();
+                } while ((mascot==oldMascot) || (mascot=="none") || (mascot=="random"));
+            } else {
+                mascot=$(this).attr("alt");
+            }
+            $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
+        });
+        
+        //apply effects to mascot selection
+        $("#imgselect td").hover(function() {
+            $(this).css("opacity", "0.8");
+        },function() {
+            $(this).css("opacity", "1");
+        });
         
         //apply effects to rec elements        
         $(".rec h3").hover(function() {
@@ -71,12 +111,6 @@ $(document).ready(function() {
         $("#imgselect").slideUp( 200, "linear" );
     }); 
 
-    $("#imgselect td").hover(function() {
-        $(this).css("opacity", "0.8");
-    },function() {
-        $(this).css("opacity", "1");
-    });
-
     //collapse or expand recs 
     var hiddenState = true;
     $("#menu-collapse").click(function() {
@@ -129,43 +163,6 @@ $(document).ready(function() {
             $("#menu-toggleAiring").html("Hide airing recs");
             airingState=true;
         }
-    });
-    
-    //change displayed mascot on click
-    var mascots = [
-        "akari",
-        "arisu",
-        "asuka",
-        "ayase",
-        "choi",
-        "kirino",
-        "korbo",
-        "maki",
-        "mayaka",
-        "miuna",
-        "popura",
-        "ryuuko",
-        "shinobu",
-        "tsurugi"
-    ];
-
-    function randomMascot() {
-        return mascots[Math.floor(Math.random() * mascots.length)];
-    }
-
-    var mascot=randomMascot();
-    $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
-
-    $(".mascot").click(function() {
-        if ($(this).attr("alt")=="random") {
-            do {
-                var oldMascot = mascot;
-                mascot=randomMascot();
-            } while (mascot==oldMascot);
-        } else {
-            mascot=$(this).attr("alt");
-        }
-        $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
     });
     
 });
