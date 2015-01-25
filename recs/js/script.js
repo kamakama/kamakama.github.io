@@ -50,6 +50,16 @@ $(document).ready(function() {
             $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
         });
         
+        //preload mascots
+        function preload(images) {
+            var img = "";
+            $(images).each(function () {
+                img = "img/mascot/" + this + ".png";
+                $('<img />').attr('src',img).appendTo('body').css('display','none'); 
+            });
+        }
+        preload(mascots);
+        
         //apply effects to mascot selection
         $("#imgselect td").hover(function() {
             $(this).css("opacity", "0.8");
@@ -99,7 +109,6 @@ $(document).ready(function() {
         preload: true
     });
     $("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
-    
     
     //hover effects
     $(".menu-item").hover(function() {
