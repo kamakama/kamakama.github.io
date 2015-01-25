@@ -6,12 +6,12 @@ $(document).ready(function() {
         //builds mascots
         var mascots = data.mascots;
         var itemsMascots=[];
-        var checkNewTR = 4;
+        var checkNewTR = 0;
         $.each( mascots, function( index, value ) {
             if (checkNewTR % 4 == 0) { itemsMascots.push("<tr>"); }
             itemsMascots.push("<td><img class='mascot' alt='"+ value + "' src='img/thumb/selection_" + value + ".jpg'></td>");
             if (checkNewTR % 4 == 0) { itemsMascots.push("</tr>"); }
-            checkNewTR++;       
+            checkNewTR++;
         });
         $("#imgselect").append(itemsMascots);
         

@@ -1,10 +1,13 @@
+html, body { 
+    height: 100%; 
+}
 body {
 	font-family: Verdana, Geneva, sans-serif;
-	background-color: #572561;
-	background-image: url("chiri.png");
-	background-repeat:no-repeat;
-	background-position: center top;
-	background-size: cover;
+	background-image: url(chiri.png);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover; 
+    margin: 0;
 }
 #countdownDiv {
 	color: white;
