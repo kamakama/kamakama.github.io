@@ -3,6 +3,7 @@ html, body {
 }
 body {
 	font-family: Verdana, Geneva, sans-serif;
+    background-color: #572561;
 	background-image: url(chiri.png);
     background-repeat: no-repeat;
     background-position: center; 

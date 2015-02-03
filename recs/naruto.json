@@ -1,0 +1,132 @@
+{
+	"recs" : {
+		"normalrec" : [{
+                "title" : "Naruto",
+                "description" : "believe it"
+            }, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}
+		],
+		"moerec" : [{
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}
+		],
+		"airrec" : [{
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}
+		],
+		"oldrec" : [{
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}, {
+				"title" : "Naruto",
+				"description" : "believe it"
+			}
+		]
+	},
+    "mascots": [
+        "none",
+        "random",
+        "arisu",
+        "miuna",
+        "popura",
+        "korbo",
+        "maki",
+        "ryuuko",
+        "ayase",
+        "kirino",
+        "choi",
+        "shinobu",
+        "mayaka",
+        "asuka",
+        "tsurugi",
+        "akari"
+    ]
+}

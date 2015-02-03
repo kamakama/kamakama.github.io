@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
     //build site
-    $.getJSON( "data.json", function(data) {
+    $.getJSON( "naruto.json", function(data) {
     
-        //builds mascots
+        //build mascots
         var mascots = data.mascots;
         var itemsMascots=[];
         var checkNewTR = 0;
@@ -103,11 +103,14 @@ $(document).ready(function() {
         sounds: [
             {name: "nyanpass"}, 
             {name: "nils", volume: 1}, //http://vocaroo.com/i/s0wSeD9kqTkZ
+            {name: "naruto", volume: 0.5},
             ],
         volume: 0.2,
         path: "sounds/",
         preload: true
     });
+    $.ionSound.play("naruto", { loop: true });
+    
     $("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
     
     //hover effects
