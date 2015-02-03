@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //build site
-    $.getJSON( "naruto.json", function(data) {
+    $.getJSON( "data.json", function(data) {
     
         //build mascots
         var mascots = data.mascots;
@@ -14,9 +14,14 @@ $(document).ready(function() {
             checkNewTR++;
         });
         $("#imgselect").append(itemsMascots);
-        
+        var oldMascot="";
         function randomMascot() {
-            return mascots[Math.floor(Math.random() * mascots.length)];
+            var newMascot = mascots[Math.floor(Math.random() * mascots.length)];
+            while ((newMascot==oldMascot) || (newMascot=="none") || (newMascot=="random")) {
+                newMascot=mascots[Math.floor(Math.random() * mascots.length)];
+            }
+            oldMascot = newMascot;
+            return newMascot
         }
         var mascot=randomMascot();
         $("body").css("background-image", "url('img/mascot/"+mascot+".png')");
@@ -40,10 +45,7 @@ $(document).ready(function() {
         //change displayed mascot on click
         $(".mascot").click(function() {
             if ($(this).attr("alt")=="random") {
-                do {
-                    var oldMascot = mascot;
-                    mascot=randomMascot();
-                } while ((mascot==oldMascot) || (mascot=="none") || (mascot=="random"));
+                mascot=randomMascot();
             } else {
                 mascot=$(this).attr("alt");
             }
@@ -98,18 +100,19 @@ $(document).ready(function() {
 
     });
 
+
     //initialize sound
     $.ionSound({
         sounds: [
-            {name: "nyanpass"}, 
-            {name: "nils", volume: 1}, //http://vocaroo.com/i/s0wSeD9kqTkZ
-            {name: "naruto", volume: 0.5},
+            {name: "nyanpass", volume: 0.2}, 
+            {name: "nils"}, //http://vocaroo.com/i/s0wSeD9kqTkZ
+            {name: "naruto"},
             ],
-        volume: 0.2,
+        volume: 1,
         path: "sounds/",
         preload: true
     });
-    $.ionSound.play("naruto", { loop: true });
+    
     
     $("#menu-nyanpasu").click(function() { $.ionSound.play("nyanpass"); });
     
@@ -177,6 +180,40 @@ $(document).ready(function() {
             $(".airrec").toggle();
             $("#menu-toggleAiring").html("Hide airing recs");
             airingState=true;
+        }
+    });
+    
+    //believe it button
+    $("#menu-believeit").click(function() {
+        if ($("#menu-believeit").html() == "Believe it") {
+            $.ionSound.play("naruto", { loop: true });
+            
+            $.getJSON( "naruto.json", function(data) {
+                $("#recs").html("");
+                //build recs
+                var itemsRecs=[];
+                $.each( data.recs, function ( recclass, recobj ) {
+                    $.each( recobj , function( i, value ) {
+                        if (value["description"] == "gogaudio") {
+                            itemsRecs.push( "<div class='rec " + recclass + "'><h3 id='vocaroo-nils'>" + value["title"] + "</h3></div>");
+                        } else {
+                            itemsRecs.push( "<div class='rec " + recclass + "'><h3>" + value["title"] + "</h3><p>" + value["description"] + "</p></div>");
+                        }
+                    });
+                });
+                $("#recs").append(itemsRecs);
+                
+                //apply effects to rec elements        
+                $(".rec h3").hover(function() {
+                    $(this).css("background-color", "#646972");
+                },function() {
+                    $(this).css("background-color", "#4b4a4a");
+                });
+                $(".rec h3").click(function() {
+                    $("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
+                });
+            });
+            $("#menu-believeit").html("no going back");
         }
     });
     
