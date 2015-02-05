@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //build site
-    $.getJSON( "data.json", function(data) {
+    $.getJSON( "data/data.json", function(data) {
     
         //build mascots
         var mascots = data.mascots;
@@ -189,7 +189,7 @@ $(document).ready(function() {
             $.ionSound.play("naruto", { loop: true });
             $(".mascot").attr("src", "img/naruto/selection_naruto.jpg");
             
-            $.getJSON( "naruto.json", function(data) {
+            $.getJSON( "data/naruto.json", function(data) {
                 $("#recs").html("");
                 //build recs
                 var itemsRecs=[];
