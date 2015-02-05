@@ -187,6 +187,7 @@ $(document).ready(function() {
     $("#menu-believeit").click(function() {
         if ($("#menu-believeit").html() == "Believe it") {
             $.ionSound.play("naruto", { loop: true });
+            $(".mascot").attr("src", "img/naruto/selection_naruto.jpg");
             
             $.getJSON( "naruto.json", function(data) {
                 $("#recs").html("");
@@ -212,6 +213,17 @@ $(document).ready(function() {
                 $(".rec h3").click(function() {
                     $("p", $(this).parent(".rec")).slideToggle( 200, "linear" );
                 });
+                
+                //change mascot click to NARUTO
+                $("body").css("background-image", "url('img/naruto/naruto1.png')");
+                $(".mascot").unbind("click");
+                var naruto = data.mascots;
+                var narutoIndex = 1;
+                $(".mascot").click(function() {
+                    $("body").css("background-image", "url('img/naruto/"+naruto[narutoIndex%naruto.length]+".png')");
+                    narutoIndex++;
+                });
+                
             });
             $("#menu-believeit").html("no going back");
         }
