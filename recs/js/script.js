@@ -217,11 +217,20 @@ $(document).ready(function() {
                 //change mascot click to NARUTO
                 $("body").css("background-image", "url('img/naruto/naruto1.png')");
                 $(".mascot").unbind("click");
+                
                 var naruto = data.mascots;
                 var narutoIndex = 1;
+
                 $(".mascot").click(function() {
                     $("body").css("background-image", "url('img/naruto/"+naruto[narutoIndex%naruto.length]+".png')");
                     narutoIndex++;
+                });
+                
+                //preload narutos
+                var img = "";
+                $(naruto).each(function () {
+                    img = "img/naruto/" + this + ".png";
+                    $('<img />').attr('src',img).appendTo('body').css('display','none'); 
                 });
                 
             });
