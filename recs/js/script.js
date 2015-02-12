@@ -183,6 +183,7 @@ $(document).ready(function() {
         }
     });
     
+    $('<img />').attr('src','img/naruto/naruto1.png').appendTo('body').css('display','none'); 
     //believe it button
     $("#menu-believeit").click(function() {
         if ($("#menu-believeit").html() == "Believe it") {
