@@ -196,11 +196,7 @@ $(document).ready(function() {
                 var itemsRecs=[];
                 $.each( data.recs, function ( recclass, recobj ) {
                     $.each( recobj , function( i, value ) {
-                        if (value["description"] == "gogaudio") {
-                            itemsRecs.push( "<div class='rec " + recclass + "'><h3 id='vocaroo-nils'>" + value["title"] + "</h3></div>");
-                        } else {
-                            itemsRecs.push( "<div class='rec " + recclass + "'><h3>" + value["title"] + "</h3><p>" + value["description"] + "</p></div>");
-                        }
+                        itemsRecs.push( "<div class='rec " + recclass + "'><h3>" + value["title"] + "</h3><p>" + value["description"] + "</p></div>");
                     });
                 });
                 $("#recs").append(itemsRecs);
